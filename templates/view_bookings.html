@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Bookings</title>
+</head>
+<body>
+    <h1>Your Bookings</h1>
+    <ul>
+        {% for booking in bookings %}
+            <li>
+                Booking ID: {{ booking.BookingID }}<br>
+                Flight Number: {{ booking.FLIGHTNUM }}<br>
+                Origin: {{ booking.ORIGIN }}<br>
+                Destination: {{ booking.DEST }}<br>
+                Departure Date: {{ booking.DATE }}<br>
+                Departure Time: {{ booking.DEP_TIME }}<br>
+                Arrival Time: {{ booking.ARR_TIME }}<br>
+                Number of Adults: {{ booking.NumAdults }}<br>
+                Number of Children: {{ booking.NumChildren }}<br>
+                Booking Status: {{ booking.BookingStatus }}<br>
+                <form action="/bookings/cancel/{{ booking.BookingID }}" method="post">
+                    <button type="submit">Cancel Booking</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+    <br>
+    <a href="/flights/search">Search for More Flights</a>
+</body>
+</html>

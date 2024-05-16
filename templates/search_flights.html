@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Flights</title>
+</head>
+<body>
+    <h1>Search for Flights</h1>
+    <form action="{{ url_for('flight_results', passenger_id=passenger_id) }}" method="post">
+        Origin: <input type="text" name="origin">
+        Destination: <input type="text" name="destination">
+        Date: <input type="date" name="date">
+        <button type="submit">Search</button>
+    </form>
+    <br>
+    
+    <a href="/bookings/view">View Your Bookings</a>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flight Search Results</title>
+</head>
+<body>
+    <h1>Flight Search Results</h1>
+    <ul>
+        {% for flight in flights %}
+            <li>
+                Flight Number: {{ flight.FLIGHTNUM }}<br>
+                Origin: {{ flight.ORIGIN }}<br>
+                Destination: {{ flight.DEST }}<br>
+                Departure Time: {{ flight.DEP_TIME }}<br>
+                Arrival Time: {{ flight.ARR_TIME }}<br>
+                <form action="{{ url_for('create_booking') }}" method="post">
+                    <input type="hidden" name="flight_id" value="{{ flight.FLIGHTNUM }}">
+                    Number of Adults: <input type="number" name="num_adults"><br>
+                    Number of Children: <input type="number" name="num_children"><br>
+                    <input type="hidden" name="passenger_id" value="{{ passenger_id }}">
+                    <button type="submit">Book Flight</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+
+    {% if success_message %}
+        <p>{{ success_message }}</p>
+    {% endif %}
+
+    {% if error_message %}
+        <p>{{ error_message }}</p>
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Passenger List</title>
+</head>
+<body>
+    <h1>Passengers</h1>
+    <ul>
+        {% for passenger in passengers %}
+            <li>{{ passenger.FIRSTNAME }} {{ passenger.SURNAME }}</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Add Passenger</h2>
+    <form method="post" action="/add_passenger">
+        Surname: <input type="text" name="surname"><br>
+        First Name: <input type="text" name="firstname"><br>
+        <input type="submit" value="Add Passenger">
+    </form>
+</body>
+</html>
