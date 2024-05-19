@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Flight</title>
+</head>
+<body>
+    <h1>Create Flight</h1>
+    <form action="/staff/flights/create" method="post">
+        Origin: <input type="text" name="origin" required><br>
+        Destination: <input type="text" name="destination" required><br>
+        Airplane Number: 
+        <select name="airplane_numser" required>
+            <option value="2001">2001</option>
+            <option value="2002">2002</option>
+            <option value="2003">2003</option>
+            <option value="2004">2004</option>
+            <option value="2005">2005</option>
+        </select><br>
+        Employee Number: <input type="number" name="empnum" required><br>
+        Date: <input type="date" name="date" required><br>
+        Departure Time: <input type="time" name="dep_time" required><br>
+        Arrival Time: <input type="time" name="arr_time" required><br>
+        <button type="submit">Create Flight</button>
+    </form>
+</body>
+</html>

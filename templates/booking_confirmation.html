@@ -1,18 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Booking Confirmation</title>
-</head>
-<body>
-    <h1>Booking Confirmation</h1>
-    {% if success_message %}
-        <p>{{ success_message }}</p>
-    {% else %}
-        <p>Your booking has been successfully created!</p>
-    {% endif %}
-    <a href="/bookings/view">View Your Bookings</a>
-    <br>
-    <a href="/flights/search">Search for More Flights</a>
-</body>
-</html>
+{% extends "base.html" %}
+{% block title %}Booking Confirmation{% endblock %}
+{% block content %}
+<h1>Booking Confirmation</h1>
+{% if success_message %}
+    <p>{{ success_message }}</p>
+{% else %}
+    <p>Your booking has been successfully created!</p>
+{% endif %}
+<a href="/bookings/view">View Your Bookings</a>
+<br>
+<a href="/flights/search">Search for More Flights</a>
+{% endblock %}

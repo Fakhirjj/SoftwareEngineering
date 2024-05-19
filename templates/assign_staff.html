@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Assign Staff to Flight{% endblock %}
+{% block content %}
+<div class="form-container">
+    <h1>Assign Staff to Flight</h1>
+    <form action="{{ url_for('assign_staff') }}" method="post">
+        <label for="flightnum">Flight Number</label>
+        <input type="text" id="flightnum" name="flightnum" required>
+        <label for="empnum">Employee Number</label>
+        <input type="text" id="empnum" name="empnum" required>
+        <label for="role">Role</label>
+        <input type="text" id="role" name="role" required>
+        <button type="submit">Assign Staff</button>
+    </form>
+</div>
+{% endblock %}

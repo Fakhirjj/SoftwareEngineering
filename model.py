@@ -44,6 +44,13 @@ class Booking:
         """
         cursor.execute(query, (passenger_id,))
         return cursor.fetchall()
+    
+    def cancel_booking(self, booking_id):
+        cursor = self.db.cursor()
+        query = "DELETE FROM Bookings WHERE BookingID = ?"
+        cursor.execute(query, (booking_id,))
+        self.db.commit()
+
 
 class AirlineFacade:
     def __init__(self, db_connection):
@@ -68,3 +75,6 @@ class AirlineFacade:
 
     def get_bookings(self, passenger_id):
         return self.booking.get_bookings(passenger_id)
+    
+    def cancel_booking(self, booking_id):
+        return self.booking.cancel_booking(booking_id)

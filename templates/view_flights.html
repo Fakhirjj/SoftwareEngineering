@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View Flights</title>
+</head>
+<body>
+    <h1>Existing Flights</h1>
+    <table border="1">
+        <tr>
+            <th>Flight Number</th>
+            <th>Origin</th>
+            <th>Destination</th>
+            <th>Date</th>
+            <th>Departure Time</th>
+            <th>Arrival Time</th>
+        </tr>
+        {% for flight in flights %}
+        <tr>
+            <td>{{ flight.FLIGHTNUM }}</td>
+            <td>{{ flight.ORIGIN }}</td>
+            <td>{{ flight.DEST }}</td>
+            <td>{{ flight.DATE }}</td>
+            <td>{{ flight.DEP_TIME }}</td>
+            <td>{{ flight.ARR_TIME }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="/staff">Back to Dashboard</a>
+</body>
+</html>

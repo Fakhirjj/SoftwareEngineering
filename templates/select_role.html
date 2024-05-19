@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Select Role{% endblock %}
+{% block content %}
+<div class="role-selection-container">
+    <h1>Select Role</h1>
+    <button onclick="location.href='/passenger'">PASSENGERS</button>
+    <button onclick="location.href='/staff'">STAFF</button>
+    <button onclick="location.href='/pilot'">Pilot</button>
+    <button onclick="location.href='/admin'">ADMIN</button>
+</div>
+{% endblock %}

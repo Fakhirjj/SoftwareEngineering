@@ -1,19 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Search Flights</title>
-</head>
-<body>
-    <h1>Search for Flights</h1>
-    <form action="{{ url_for('flight_results', passenger_id=passenger_id) }}" method="post">
-        Origin: <input type="text" name="origin">
-        Destination: <input type="text" name="destination">
-        Date: <input type="date" name="date">
-        <button type="submit">Search</button>
-    </form>
-    <br>
-    
-    <a href="/bookings/view">View Your Bookings</a>
-</body>
-</html>
+{% extends "base.html" %}
+{% block title %}Search Flights{% endblock %}
+{% block content %}
+<h1>Search for Flights</h1>
+<form action="{{ url_for('flight_results') }}" method="post">
+    Origin: <input type="text" name="origin" required><br>
+    Destination: <input type="text" name="destination" required><br>
+    Date: <input type="date" name="date" required><br>
+    <button type="submit">Search</button>
+</form>
+<br>
+<a href="/bookings/view">View Your Bookings</a>
+{% endblock %}
