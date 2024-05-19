@@ -1,13 +1,38 @@
-{% extends "base.html" %}
-{% block title %}Search Flights{% endblock %}
-{% block content %}
-<h1>Search for Flights</h1>
-<form action="{{ url_for('flight_results') }}" method="post">
-    Origin: <input type="text" name="origin" required><br>
-    Destination: <input type="text" name="destination" required><br>
-    Date: <input type="date" name="date" required><br>
-    <button type="submit">Search</button>
-</form>
-<br>
-<a href="/bookings/view">View Your Bookings</a>
-{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Flights</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Airline Management System</h1>
+    </header>
+    <div class="search-container">
+        <h2>Search for Flights</h2>
+        <form action="/flights/results" method="post">
+            <label for="origin">Flight From:</label>
+            <input type="text" id="origin" name="origin" required>
+            
+            <label for="destination">Flight To:</label>
+            <input type="text" id="destination" name="destination" required>
+
+            <label for="date">Date From:</label>
+            <input type="date" id="date" name="date" required>
+            
+            <label for="num_adults">Adults:</label>
+            <input type="number" id="num_adults" name="num_adults" required min="1">
+
+            <label for="num_children">Children:</label>
+            <input type="number" id="num_children" name="num_children" required min="0">
+
+            <button type="submit">Search</button>
+        </form>
+        <a href="/bookings/view">View Your Bookings</a>
+    </div>
+    <footer>
+        <p>© 2024 Airline Management System</p>
+    </footer>
+</body>
+</html>

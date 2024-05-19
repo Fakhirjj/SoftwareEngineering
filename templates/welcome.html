@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to Airline Management System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Airline Management System</h1>
+    </header>
+    <div class="welcome-container">
+        <h2>Welcome to the Airline Management System</h2>
+        <a href="{{ url_for('select_role') }}" class="button">Get Started</a>
+    </div>
+    <footer>
+        <p>© 2024 Airline Management System</p>
+    </footer>
+</body>
+</html>

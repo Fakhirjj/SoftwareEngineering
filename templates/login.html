@@ -1,6 +1,88 @@
 {% extends "base.html" %}
 {% block title %}Login{% endblock %}
 {% block content %}
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+    }
+    header, footer {
+        width: 100%;
+        text-align: center;
+        position: absolute;
+    }
+    header {
+        top: 20px;
+    }
+    footer {
+        bottom: 20px;
+    }
+    .form-container {
+        background-color: white;
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        width: 300px;
+    }
+    .form-container h1 {
+        font-size: 2.5em;
+        margin-bottom: 20px;
+        color: #333;
+    }
+    .form-container form {
+        display: flex;
+        flex-direction: column;
+    }
+    .form-container label {
+        font-size: 1.1em;
+        margin-bottom: 5px;
+        text-align: left;
+        color: #333;
+    }
+    .form-container input {
+        font-size: 1.1em;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    .form-container button {
+        font-size: 1.2em;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: #007bff;
+        color: white;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    .form-container button:hover {
+        background-color: #0056b3;
+    }
+    .form-container p {
+        margin-top: 15px;
+        font-size: 1em;
+    }
+    .form-container a {
+        color: #007bff;
+        text-decoration: none;
+    }
+    .form-container a:hover {
+        text-decoration: underline;
+    }
+</style>
+
+<header>
+    <h1>Airline Management System</h1>
+</header>
+
 <div class="form-container login-container">
     <h1>Login</h1>
     <form action="{{ url_for('login') }}" method="post">
@@ -12,4 +94,8 @@
     </form>
     <p>Don't have an account? <a href="{{ url_for('register') }}">Register here</a></p>
 </div>
+
+<footer>
+    <p>&copy; 2024 Airline Management System</p>
+</footer>
 {% endblock %}

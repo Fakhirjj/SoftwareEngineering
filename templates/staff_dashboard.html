@@ -3,10 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>Staff Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>Staff Dashboard</h1>
-    <a href="/staff/flights/create">Create New Flight</a><br>
-    <a href="/staff/flights/view">View Existing Flights</a><br>
+    <header>
+        <h1>Airline Management System</h1>
+    </header>
+    <div class="dashboard-container">
+        <h2>Staff Dashboard</h2>
+        <div class="button-container">
+            <a href="/staff/flights/create" class="dashboard-button">Create New Flight</a>
+            <a href="/staff/flights/view" class="dashboard-button">View Existing Flights</a>
+        </div>
+    </div>
+    <footer>
+        <p>© 2024 Airline Management System</p>
+    </footer>
 </body>
 </html>

@@ -1,11 +1,58 @@
 {% extends "base.html" %}
 {% block title %}Select Role{% endblock %}
 {% block content %}
-<div class="role-selection-container">
-    <h1>Select Role</h1>
-    <button onclick="location.href='/passenger'">PASSENGERS</button>
-    <button onclick="location.href='/staff'">STAFF</button>
-    <button onclick="location.href='/pilot'">Pilot</button>
-    <button onclick="location.href='/admin'">ADMIN</button>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f0f0f0;
+    }
+    .role-selection-container {
+        text-align: center;
+        background: white;
+        padding: 40px 60px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .role-selection-container h1 {
+        font-size: 2.5em;
+        margin-bottom: 20px;
+        color: #333;
+    }
+    .buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    .buttons button {
+        font-size: 1.2em;
+        padding: 15px 25px;
+        border: none;
+        border-radius: 5px;
+        background-color: #007bff;
+        color: white;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+    .buttons button:hover {
+        background-color: #0056b3;
+    }
+</style>
+
+<div class="container">
+    <div class="role-selection-container">
+        <h1>Select Role</h1>
+        <div class="buttons">
+            <button onclick="location.href='/passenger'">PASSENGERS</button>
+            <button onclick="location.href='/staff'">STAFF</button>
+            <button onclick="location.href='/pilot'">PILOT</button>
+            <button onclick="location.href='/admin'">ADMIN</button>
+        </div>
+    </div>
 </div>
 {% endblock %}

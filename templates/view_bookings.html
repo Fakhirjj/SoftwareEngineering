@@ -1,26 +1,60 @@
-{% extends "base.html" %}
-{% block title %}Your Bookings{% endblock %}
-{% block content %}
-<h1>Your Bookings</h1>
-<ul>
-    {% for booking in bookings %}
-        <li>
-            Booking ID: {{ booking.BookingID }}<br>
-            Flight Number: {{ booking.FLIGHTNUM }}<br>
-            Origin: {{ booking.ORIGIN }}<br>
-            Destination: {{ booking.DEST }}<br>
-            Departure Date: {{ booking.DATE }}<br>
-            Departure Time: {{ booking.DEP_TIME }}<br>
-            Arrival Time: {{ booking.ARR_TIME }}<br>
-            Number of Adults: {{ booking.NumAdults }}<br>
-            Number of Children: {{ booking.NumChildren }}<br>
-            Booking Status: {{ booking.BookingStatus }}<br>
-            <form action="/bookings/cancel/{{ booking.BookingID }}" method="post">
-                <button type="submit">Cancel Booking</button>
-            </form>
-        </li>
-    {% endfor %}
-</ul>
-<br>
-<a href="/flights/search">Search for More Flights</a>
-{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Bookings</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Airline Management System</h1>
+    </header>
+    <div class="bookings-container">
+        <h2>Your Bookings</h2>
+        {% if bookings %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Flight Number</th>
+                        <th>Origin</th>
+                        <th>Destination</th>
+                        <th>Date</th>
+                        <th>Departure Time</th>
+                        <th>Arrival Time</th>
+                        <th>Adults</th>
+                        <th>Children</th>
+                        <th>Booking Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for booking in bookings %}
+                        <tr>
+                            <td>{{ booking.FLIGHTNUM }}</td>
+                            <td>{{ booking.ORIGIN }}</td>
+                            <td>{{ booking.DEST }}</td>
+                            <td>{{ booking.DATE }}</td>
+                            <td>{{ booking.DEP_TIME }}</td>
+                            <td>{{ booking.ARR_TIME }}</td>
+                            <td>{{ booking.NumAdults }}</td>
+                            <td>{{ booking.NumChildren }}</td>
+                            <td>{{ booking.BookingStatus }}</td>
+                            <td>
+                                <form action="/bookings/cancel/{{ booking.BookingID }}" method="post">
+                                    <button type="submit">Cancel</button>
+                                </form>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>You have no bookings.</p>
+        {% endif %}
+        <a href="/flights/search">Search for More Flights</a>
+    </div>
+    <footer>
+        <p>© 2024 Airline Management System</p>
+    </footer>
+</body>
+</html>
